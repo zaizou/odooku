@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>http://adaptivdesign.github.io/odooku//</loc>
+     <lastmod>2017-01-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>http://adaptivdesign.github.io/odooku//getting-started/</loc>
+     <lastmod>2017-01-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>http://adaptivdesign.github.io/odooku//commands/wsgi/</loc>
+     <lastmod>2017-01-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>http://adaptivdesign.github.io/odooku//topics/s3/</loc>
+     <lastmod>2017-01-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://adaptivdesign.github.io/odooku//topics/scaling/</loc>
+     <lastmod>2017-01-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://adaptivdesign.github.io/odooku//topics/databases/</loc>
+     <lastmod>2017-01-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://adaptivdesign.github.io/odooku//topics/security/</loc>
+     <lastmod>2017-01-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://adaptivdesign.github.io/odooku//topics/cron/</loc>
+     <lastmod>2017-01-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://adaptivdesign.github.io/odooku//topics/websockets/</loc>
+     <lastmod>2017-01-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://adaptivdesign.github.io/odooku//topics/new-relic/</loc>
+     <lastmod>2017-01-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+</urlset>

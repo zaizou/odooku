@@ -1,0 +1,114 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Run Odoo on Heroku (more platforms coming).\nOdooku provides a great way to run Odoo as a service.", 
+            "title": "Odooku"
+        }, 
+        {
+            "location": "/getting-started/", 
+            "text": "Clone the Odooku repository or create your own repository. Odooku is like\nany other Heroku project, however the Odooku buildpack also requires\nan \nodooku.json\n file.\n\n\nProject structure\n#\n\n\nProcfile\n#\n\n\nTell Heroku what to run:\n\n\nweb\n:\n \nodooku\n \nwsgi\n \n$PORT\n\n\n\n\n\n\nodooku.json\n#\n\n\nThe Odooku buildpack needs to know which Odoo and \nOdooku compat\n version\nto fetch.\n\n\n{\n  \nodoo\n: {\n    \nrepo\n: \nodoo/odoo\n,\n    \nbranch\n: \n10.0\n,\n    \ncommit\n: null\n  },\n  \ncompat\n: {\n    \nrepo\n: \nadaptivdesign/odooku-compat\n,\n    \nbranch\n: \n10.0\n,\n    \ncommit\n: null\n  }\n}\n\n\n\n\n\naddons\n#\n\n\nPlace your addons under \n/addons\n\n\nFirst deployment\n#\n\n\n$ heroku create --buildpack https://github.com/adaptivdesign/odooku-buildpack\n$ heroku addons:create heroku-postgresql:hobby-basic\n$ heroku addons:create heroku-redis:hobby-dev\n$ heroku config:set \nAWS_ACCESS_KEY_ID\n=\nyour_aws_key\n\n$ heroku config:set \nAWS_SECRET_ACCESS_KEY\n=\nyour_aws_secret\n\n$ heroku config:set \nS3_BUCKET\n=\nyour_s3_bucket_name\n\n$ git push heroku master", 
+            "title": "Getting started"
+        }, 
+        {
+            "location": "/getting-started/#project-structure", 
+            "text": "", 
+            "title": "Project structure"
+        }, 
+        {
+            "location": "/getting-started/#procfile", 
+            "text": "Tell Heroku what to run:  web :   odooku   wsgi   $PORT", 
+            "title": "Procfile"
+        }, 
+        {
+            "location": "/getting-started/#odookujson", 
+            "text": "The Odooku buildpack needs to know which Odoo and  Odooku compat  version\nto fetch.  {\n   odoo : {\n     repo :  odoo/odoo ,\n     branch :  10.0 ,\n     commit : null\n  },\n   compat : {\n     repo :  adaptivdesign/odooku-compat ,\n     branch :  10.0 ,\n     commit : null\n  }\n}", 
+            "title": "odooku.json"
+        }, 
+        {
+            "location": "/getting-started/#addons", 
+            "text": "Place your addons under  /addons", 
+            "title": "addons"
+        }, 
+        {
+            "location": "/getting-started/#first-deployment", 
+            "text": "$ heroku create --buildpack https://github.com/adaptivdesign/odooku-buildpack\n$ heroku addons:create heroku-postgresql:hobby-basic\n$ heroku addons:create heroku-redis:hobby-dev\n$ heroku config:set  AWS_ACCESS_KEY_ID = your_aws_key \n$ heroku config:set  AWS_SECRET_ACCESS_KEY = your_aws_secret \n$ heroku config:set  S3_BUCKET = your_s3_bucket_name \n$ git push heroku master", 
+            "title": "First deployment"
+        }, 
+        {
+            "location": "/commands/wsgi/", 
+            "text": "", 
+            "title": "wsgi"
+        }, 
+        {
+            "location": "/topics/s3/", 
+            "text": "The Odoo filestore is mirrored in a S3 bucket. Enabling Odooku to use S3\nrequiresthat the Dyno's have access to the AWS credentials as well as the\nname of the bucket to store files.\n\n\nOdooku exposes 3 environment variables that need to be configured:\n\n\n$ heroku config:set \nAWS_ACCESS_KEY_ID\n=\nyour_aws_key\n\n$ heroku config:set \nAWS_SECRET_ACCESS_KEY\n=\nyour_aws_secret\n\n$ heroku config:set \nS3_BUCKET\n=\nyour_s3_bucket_name\n\n\n\n\n\n\nYour S3 credentials can be found on the Security Credentials section of the\nAWS \u201cMy Account/Console\u201d menu.", 
+            "title": "S3 Storage"
+        }, 
+        {
+            "location": "/topics/scaling/", 
+            "text": "Redis is only required if you're running multiple web dyno's. Odooku needs a way\nto maintain session data between all dyno's.\n\n\n$ heroku addons:create heroku-redis:hobby-dev", 
+            "title": "Scaling"
+        }, 
+        {
+            "location": "/topics/databases/", 
+            "text": "Preloading a database\n#\n\n\nWhen running against a new database, it's recommended to preload the database\nusign the 'odooku preload' command. Database initialization using a web worker\nis possible however.\n\n\n$ heroku run odooku database preload \n[\n--demo-data\n]\n\n\n\n\n\n\nBackup and Restore\n#\n\n\n$ heroku run odooku database dump --s3-file dump.zip\n$ heroku run odooku database restore --s3-file dump.zip\n\n\n\n\n\nBackup and restore from within the Vagrant development machine:\n\n\n$ devoku run odooku database dump \n /vagrant/dump.zip\n$ devoku run odooku database restore \n /vagrant/dump.zip", 
+            "title": "Databases"
+        }, 
+        {
+            "location": "/topics/databases/#preloading-a-database", 
+            "text": "When running against a new database, it's recommended to preload the database\nusign the 'odooku preload' command. Database initialization using a web worker\nis possible however.  $ heroku run odooku database preload  [ --demo-data ]", 
+            "title": "Preloading a database"
+        }, 
+        {
+            "location": "/topics/databases/#backup-and-restore", 
+            "text": "$ heroku run odooku database dump --s3-file dump.zip\n$ heroku run odooku database restore --s3-file dump.zip  Backup and restore from within the Vagrant development machine:  $ devoku run odooku database dump   /vagrant/dump.zip\n$ devoku run odooku database restore   /vagrant/dump.zip", 
+            "title": "Backup and Restore"
+        }, 
+        {
+            "location": "/topics/security/", 
+            "text": "Admin password\n#\n\n\nOdooku disables the default admin password configuration entry used by Odoo.\n\n\n$ heroku config:set \nODOOKU_ADMIN_PASSWORD\n=\nyour_password", 
+            "title": "Security"
+        }, 
+        {
+            "location": "/topics/security/#admin-password", 
+            "text": "Odooku disables the default admin password configuration entry used by Odoo.  $ heroku config:set  ODOOKU_ADMIN_PASSWORD = your_password", 
+            "title": "Admin password"
+        }, 
+        {
+            "location": "/topics/cron/", 
+            "text": "CRON jobs can be run in 3 differents ways:\n\n\nAlong side the web process\n#\n\n\nThis runs a somewhat slower polling cron worker. Ideal for most setups.\n\n\n$ odooku wsgi --cron\n\n\n\n\n\nDedicated worker process\n#\n\n\nThis should be used for installations with long running cron jobs\n(like mass mailing).\n\n\n$ odooku cron\n\n\n\n\n\nScheduled process\n#\n\n\nYou can also make use of Heroku's scheduler, run Odooku as follows:\n\n\n$ odooku cron --once", 
+            "title": "Cron jobs"
+        }, 
+        {
+            "location": "/topics/cron/#along-side-the-web-process", 
+            "text": "This runs a somewhat slower polling cron worker. Ideal for most setups.  $ odooku wsgi --cron", 
+            "title": "Along side the web process"
+        }, 
+        {
+            "location": "/topics/cron/#dedicated-worker-process", 
+            "text": "This should be used for installations with long running cron jobs\n(like mass mailing).  $ odooku cron", 
+            "title": "Dedicated worker process"
+        }, 
+        {
+            "location": "/topics/cron/#scheduled-process", 
+            "text": "You can also make use of Heroku's scheduler, run Odooku as follows:  $ odooku cron --once", 
+            "title": "Scheduled process"
+        }, 
+        {
+            "location": "/topics/websockets/", 
+            "text": "", 
+            "title": "Websockets"
+        }, 
+        {
+            "location": "/topics/new-relic/", 
+            "text": "Odooku can integrate with New Relic make sure to modify your requirements.txt.\n\n\nThe following environment variables are available:\n\n\n\n\nNEW_RELIC_LICENSE_KEY (required)\n\n\nNEW_RELIC_CONFIG_FILE\n\n\n\n\nrequirements.txt\n#\n\n\nnewrelic\n\n\n\n\n\n$ heroku config:set \nNEW_RELIC_LICENSE_KEY\n=\nyour_newrelic_license_key\n\n$ devoku env \nset\n \nNEW_RELIC_LICENSE_KEY\n=\nyour_newrelic_license_key", 
+            "title": "New Relic"
+        }, 
+        {
+            "location": "/topics/new-relic/#requirementstxt", 
+            "text": "newrelic  $ heroku config:set  NEW_RELIC_LICENSE_KEY = your_newrelic_license_key \n$ devoku env  set   NEW_RELIC_LICENSE_KEY = your_newrelic_license_key", 
+            "title": "requirements.txt"
+        }
+    ]
+}
