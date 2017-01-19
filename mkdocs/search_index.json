@@ -7,7 +7,7 @@
         }, 
         {
             "location": "/getting-started/", 
-            "text": "Clone the Odooku repository or create your own repository. Odooku is like\nany other Heroku project, however the Odooku buildpack also requires\nan \nodooku.json\n file.\n\n\nProject structure\n#\n\n\nProcfile\n#\n\n\nTell Heroku what to run:\n\n\nweb\n:\n \nodooku\n \nwsgi\n \n$PORT\n\n\n\n\n\n\nodooku.json\n#\n\n\nThe Odooku buildpack needs to know which Odoo and \nOdooku compat\n version\nto fetch.\n\n\n{\n  \nodoo\n: {\n    \nrepo\n: \nodoo/odoo\n,\n    \nbranch\n: \n10.0\n,\n    \ncommit\n: null\n  },\n  \ncompat\n: {\n    \nrepo\n: \nadaptivdesign/odooku-compat\n,\n    \nbranch\n: \n10.0\n,\n    \ncommit\n: null\n  }\n}\n\n\n\n\n\naddons\n#\n\n\nPlace your addons under \n/addons\n\n\nFirst deployment\n#\n\n\n$ heroku create --buildpack https://github.com/adaptivdesign/odooku-buildpack\n$ heroku addons:create heroku-postgresql:hobby-basic\n$ heroku addons:create heroku-redis:hobby-dev\n$ heroku config:set \nAWS_ACCESS_KEY_ID\n=\nyour_aws_key\n\n$ heroku config:set \nAWS_SECRET_ACCESS_KEY\n=\nyour_aws_secret\n\n$ heroku config:set \nS3_BUCKET\n=\nyour_s3_bucket_name\n\n$ git push heroku master", 
+            "text": "Clone the Odooku repository or create your own repository. Odooku is like\nany other Heroku project, however the Odooku buildpack also requires\nan \nodooku.json\n file.\n\n\nProject structure\n#\n\n\nProcfile\n#\n\n\nTell Heroku what to run:\n\n\nweb\n:\n \nodooku\n \nwsgi\n \n$PORT\n\n\n\n\n\n\nodooku.json\n#\n\n\nThe Odooku buildpack needs to know from where to fetch Odoo. This needs\nto a Github repository.\n\n\n{\n  \nodoo\n: {\n    \nrepo\n: \nodoo/odoo\n,\n    \nbranch\n: \n10.0\n,\n    \ncommit\n: null\n  }\n}\n\n\n\n\n\nrequirements.txt\n#\n\n\nRequirements file for pip installation. This needs to include a reference\nto the desired \nodooku-compat\n package. Odoo's requirements are installed\nautomatically. For manual installation, create a file named\n\nodoo_requirements.txt\n.\n\n\ngit\n+\nhttps\n:\n//github.com/adaptivdesign/odooku-compat.git@10.0\n\n\n\n\n\n\naddons\n#\n\n\nPlace your addons under \n/addons\n\n\nFirst deployment\n#\n\n\n$ heroku create --buildpack https://github.com/adaptivdesign/odooku-buildpack\n$ heroku addons:create heroku-postgresql:hobby-basic\n$ heroku addons:create heroku-redis:hobby-dev\n$ heroku config:set \nAWS_ACCESS_KEY_ID\n=\nyour_aws_key\n\n$ heroku config:set \nAWS_SECRET_ACCESS_KEY\n=\nyour_aws_secret\n\n$ heroku config:set \nS3_BUCKET\n=\nyour_s3_bucket_name\n\n$ git push heroku master", 
             "title": "Getting started"
         }, 
         {
@@ -22,8 +22,13 @@
         }, 
         {
             "location": "/getting-started/#odookujson", 
-            "text": "The Odooku buildpack needs to know which Odoo and  Odooku compat  version\nto fetch.  {\n   odoo : {\n     repo :  odoo/odoo ,\n     branch :  10.0 ,\n     commit : null\n  },\n   compat : {\n     repo :  adaptivdesign/odooku-compat ,\n     branch :  10.0 ,\n     commit : null\n  }\n}", 
+            "text": "The Odooku buildpack needs to know from where to fetch Odoo. This needs\nto a Github repository.  {\n   odoo : {\n     repo :  odoo/odoo ,\n     branch :  10.0 ,\n     commit : null\n  }\n}", 
             "title": "odooku.json"
+        }, 
+        {
+            "location": "/getting-started/#requirementstxt", 
+            "text": "Requirements file for pip installation. This needs to include a reference\nto the desired  odooku-compat  package. Odoo's requirements are installed\nautomatically. For manual installation, create a file named odoo_requirements.txt .  git + https : //github.com/adaptivdesign/odooku-compat.git@10.0", 
+            "title": "requirements.txt"
         }, 
         {
             "location": "/getting-started/#addons", 

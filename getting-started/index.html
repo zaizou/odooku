@@ -333,20 +333,24 @@ an <code>odooku.json</code> file.</p>
 
 
 <h3 id="odookujson">odooku.json<a class="headerlink" href="#odookujson" title="Permanent link">#</a></h3>
-<p>The Odooku buildpack needs to know which Odoo and <code>Odooku compat</code> version
-to fetch.</p>
+<p>The Odooku buildpack needs to know from where to fetch Odoo. This needs
+to a Github repository.</p>
 <div class="codehilite"><pre><span></span>{
   &quot;odoo&quot;: {
     &quot;repo&quot;: &quot;odoo/odoo&quot;,
     &quot;branch&quot;: &quot;10.0&quot;,
     &quot;commit&quot;: null
-  },
-  &quot;compat&quot;: {
-    &quot;repo&quot;: &quot;adaptivdesign/odooku-compat&quot;,
-    &quot;branch&quot;: &quot;10.0&quot;,
-    &quot;commit&quot;: null
   }
 }
+</pre></div>
+
+
+<h3 id="requirementstxt">requirements.txt<a class="headerlink" href="#requirementstxt" title="Permanent link">#</a></h3>
+<p>Requirements file for pip installation. This needs to include a reference
+to the desired <code>odooku-compat</code> package. Odoo's requirements are installed
+automatically. For manual installation, create a file named
+<code>odoo_requirements.txt</code>.</p>
+<div class="codehilite"><pre><span></span><span class="n">git</span><span class="o">+</span><span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/adaptivdesign/odooku-compat.git@10.0</span>
 </pre></div>
 
 
