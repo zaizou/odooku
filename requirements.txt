@@ -1,2 +1,2 @@
-python-2.7.13
+python-2.7
 git+https://github.com/adaptivdesign/odooku-compat.git@10.0
